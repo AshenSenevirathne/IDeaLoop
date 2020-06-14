@@ -5,14 +5,15 @@ import java.util.ArrayList;
 public class Bus {
     String bustype; //Time selecting Variables
     String vehicleno,regno,drivername,drivercontact,routeno,from,to,username,busID;
-    ArrayList <String> TimeSlots;
-    String[] timeslot1 = new String[2];
-    String[] timeslot2 = new String[2];
-    String[] timeslot3 = new String[2];
-    String[] timeslot4 = new String[2];
+    String time1from,time2from,time3from,time4from,time1to,time2to,time3to,time4to;
+   // ArrayList <String> TimeSlots;
+   // String[] timeslot1 = new String[2];
+  //  String[] timeslot2 = new String[2];
+   // String[] timeslot3 = new String[2];
+  //  String[] timeslot4 = new String[2];
 
 
-    public Bus(String bustype, String vehicleno, String regno, String drivername, String drivercontact, String routeno, String from, String to, String username, String busID) {
+    public Bus(String bustype, String vehicleno, String regno, String drivername, String drivercontact, String routeno, String from, String to, String username, String busID, String time1from, String time2from, String time3from, String time4from, String time1to, String time2to, String time3to, String time4to) {
         this.bustype = bustype;
         this.vehicleno = vehicleno;
         this.regno = regno;
@@ -23,9 +24,17 @@ public class Bus {
         this.to = to;
         this.username = username;
         this.busID = busID;
+        this.time1from = time1from;
+        this.time2from = time2from;
+        this.time3from = time3from;
+        this.time4from = time4from;
+        this.time1to = time1to;
+        this.time2to = time2to;
+        this.time3to = time3to;
+        this.time4to = time4to;
     }
 
-    public Bus(String bustype, String vehicleno, String regno, String drivername, String drivercontact, String routeno, String from, String to, String username, String busID, String[] timeslot1, String[] timeslot2, String[] timeslot3, String[] timeslot4) {
+  /*  public Bus(String bustype, String vehicleno, String regno, String drivername, String drivercontact, String routeno, String from, String to, String username, String busID, String[] timeslot1, String[] timeslot2, String[] timeslot3, String[] timeslot4) {
         this.bustype = bustype;
         this.vehicleno = vehicleno;
         this.regno = regno;
@@ -40,7 +49,7 @@ public class Bus {
         this.timeslot2 = timeslot2;
         this.timeslot3 = timeslot3;
         this.timeslot4 = timeslot4;
-    }
+    }*/
 
     public String getBustype() {
         return bustype;
@@ -122,7 +131,7 @@ public class Bus {
         this.busID = busID;
     }
 
-    public ArrayList<String> getTimeSlots() {
+  /*  public ArrayList<String> getTimeSlots() {
         return TimeSlots;
     }
 
@@ -160,5 +169,5 @@ public class Bus {
 
     public void setTimeslot4(String[] timeslot4) {
         this.timeslot4 = timeslot4;
-    }
+    }*/
 }
