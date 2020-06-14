@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="View My Buses" />
         <item
+            android:id="@+id/profile"
+            android:icon="@drawable/common_full_open_on_phone"
+            android:title="Profile" />
+        <item
             android:id="@+id/signout"
             android:icon="@drawable/common_full_open_on_phone"
             android:title="@string/Sign_Out" />
