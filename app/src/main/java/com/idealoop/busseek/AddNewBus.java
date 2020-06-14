@@ -394,7 +394,7 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
 
                             String customertype = "busowner";
                             Bus bus = new Bus(bustype.getText().toString(), vehicleno.getText().toString(), regno.getText().toString(), drivername.getText().toString(), drivercontact.getText().toString(), routeno.getText().toString(), from.getText().toString(), to.getText().toString(), username, busid, time1from.getText().toString(), time2from.getText().toString(), time3from.getText().toString(), time4from.getText().toString(),time1to.getText().toString(),time2to.getText().toString(),time3to.getText().toString(),time4to.getText().toString());
-                            
+
                             DBRef.child(bus.getBusID()).setValue(bus);
                             testID++;
                         }
