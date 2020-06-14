@@ -23,11 +23,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.idealoop.busseek.model.Bus;
 import com.idealoop.busseek.model.BusOwner;
 
 import java.nio.charset.Charset;
@@ -38,7 +42,14 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
     TextView bustype,time1from,time2from,time3from,time4from,time1to,time2to,time3to,time4to; //Time selecting Variables
     EditText vehicleno,regno,drivername,drivercontact,routeno,from,to;
     Button btnShow,addbus,clear;
-    String url,fullname,customertype,email,id,username;//Variables for getting value
+    String url;
+    String fullname;
+    String customertype;
+    String email;
+    String id;
+    String busid;
+    int testID;
+    String username;//Variables for getting value
     private static final int GalleryPicEx =1;
     private static final int GalleryPicIn =2;
     Uri imguriEx, imguriIn;
@@ -79,7 +90,19 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
         addbus= findViewById(R.id.addbus);
         clear= findViewById(R.id.clear);
 
+        DBRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int childcount = (int) dataSnapshot.getChildrenCount();
+                testID = ++childcount;
+                busid = "BUS-"+testID;
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 //Taking Values from DashBoard
         final Bundle extras = getIntent().getExtras();
         username = extras.getString("username");
@@ -350,7 +373,30 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
 
                             Toast.makeText(AddNewBus.this, " got Product Image URL  Successfully", Toast.LENGTH_SHORT).show();
 
+                            System.out.println("Adding Bus Info");
+
+                            String[] timeslot1 = new String[2];
+                            String timeslot1f= time1from.getText().toString();
+                            timeslot1[1] = time1to.getText().toString();
+
+                            String[] timeslot2 = new String[2];
+                            timeslot2[0] = time2from.getText().toString();
+                            timeslot2[1] = time2to.getText().toString();
+
+                            String[] timeslot3 = new String[2];
+                            timeslot3[0] = time3from.getText().toString();
+                            timeslot3[1] = time3to.getText().toString();
+
+                            String[] timeslot4 = new String[2];
+                            timeslot4[0] = time4from.getText().toString();
+                            timeslot4[1] = time4to.getText().toString();
+
+
+                            String customertype = "busowner";
+                            Bus bus = new Bus(bustype.getText().toString(), vehicleno.getText().toString(), regno.getText().toString(), drivername.getText().toString(), drivercontact.getText().toString(), routeno.getText().toString(), from.getText().toString(), to.getText().toString(), username, busid, time1from.getText().toString(), time2from.getText().toString(), time3from.getText().toString(), time4from.getText().toString(),time1to.getText().toString(),time2to.getText().toString(),time3to.getText().toString(),time4to.getText().toString());
                             
+                            DBRef.child(bus.getBusID()).setValue(bus);
+                            testID++;
                         }
                     }
                 });
