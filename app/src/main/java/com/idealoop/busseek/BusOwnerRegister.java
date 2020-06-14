@@ -70,19 +70,19 @@ public class BusOwnerRegister extends AppCompatActivity {
         RefImg = FirebaseStorage.getInstance().getReference().child("BusOwnerImages");
         DBRef = FirebaseDatabase.getInstance().getReference().child("BusOwner");
 
-        DBRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int childcount = (int) dataSnapshot.getChildrenCount();
-                id = ++childcount;
+            DBRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    int childcount = (int) dataSnapshot.getChildrenCount();
+                    id = ++childcount;
 
-            }
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
         select.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -35,6 +35,7 @@ import com.idealoop.busseek.model.Bus;
 import com.idealoop.busseek.model.BusOwner;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -73,9 +74,9 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
         bustype = findViewById(R.id.bustype);
         btnShow = findViewById(R.id.btnShow);
         time1from = findViewById(R.id.time1from);
-        time1to = findViewById(R.id.time2to);
+        time1to = findViewById(R.id.time1to);
         time2from = findViewById(R.id.time2from);
-        time2to = findViewById(R.id.time1to);
+        time2to = findViewById(R.id.time2to);
         time3from = findViewById(R.id.time3from);
         time3to = findViewById(R.id.time3to);
         time4from = findViewById(R.id.time4from);
@@ -228,6 +229,12 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
             }
         });
 
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearAll();
+            }
+        });
     }
 
   /*
@@ -390,11 +397,24 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
                             String[] timeslot4 = new String[2];
                             timeslot4[0] = time4from.getText().toString();
                             timeslot4[1] = time4to.getText().toString();
+                            ArrayList <String> time = new ArrayList<>();
+                            time.add(time1from.getText().toString());
+                            time.add(time1to.getText().toString());
+                            time.add(time2from.getText().toString());
+                            time.add(time2to.getText().toString());
+                            time.add(time3from.getText().toString());
+                            time.add(time3to.getText().toString());
+                            time.add(time4from.getText().toString());
+                            time.add(time4to.getText().toString());
 
 
                             String customertype = "busowner";
-                            Bus bus = new Bus(bustype.getText().toString(), vehicleno.getText().toString(), regno.getText().toString(), drivername.getText().toString(), drivercontact.getText().toString(), routeno.getText().toString(), from.getText().toString(), to.getText().toString(), username, busid, time1from.getText().toString(), time2from.getText().toString(), time3from.getText().toString(), time4from.getText().toString(),time1to.getText().toString(),time2to.getText().toString(),time3to.getText().toString(),time4to.getText().toString());
-
+                           // Bus bus = new Bus(bustype.getText().toString(), vehicleno.getText().toString(), regno.getText().toString(), drivername.getText().toString(), drivercontact.getText().toString(), routeno.getText().toString(), from.getText().toString(), to.getText().toString(), username, busid, time1from.getText().toString(), time2from.getText().toString(), time3from.getText().toString(), time4from.getText().toString(),time1to.getText().toString(),time2to.getText().toString(),time3to.getText().toString(),time4to.getText().toString());
+                            Bus bus = new Bus(bustype.getText().toString(), vehicleno.getText().toString(), regno.getText().toString(), drivername.getText().toString(), drivercontact.getText().toString(), routeno.getText().toString(), from.getText().toString(), to.getText().toString(), username, busid);
+                            bus.setTimeSlots(time);
+                            bus.setDownloadImgEx(downloadimgurlEx);
+                            bus.setDownloadImgIn(downloadimgurlIn);
+                            bus.setNoSeats(AddingSeats(bus.getBustype()));
                             DBRef.child(bus.getBusID()).setValue(bus);
                             testID++;
                         }
@@ -415,6 +435,55 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
         return generatedString;
     }
 
+    public ArrayList AddingSeats(String bustype){
+        ArrayList<Integer> seats = new ArrayList<>();
+
+        if(bustype.equals("A/C")){
+            for(int i=0; i<42; i++){
+                seats.add(0);
+            }
+        }
+        else if(bustype.equals("Semi Luxury")){
+            for(int i=0; i<59; i++){
+                seats.add(0);
+            }
+        }
+        else if(bustype.equals("Normal")){
+            for(int i=0; i<52; i++){
+                seats.add(0);
+            }
+        }
+
+        return seats;
+    }
+
+    public void ClearAll(){
+        bustype.setText("");
+        btnShow.setText("");
+        time1from.setText("");
+        time1to.setText("");
+        time2from.setText("");
+        time2to.setText("");
+        time3from.setText("");
+        time3to.setText("");
+        time4from.setText("");
+        time4to.setText("");
+        time1from.setHint("From");
+        time1to.setHint("TO");
+        time2from.setHint("From");
+        time2to.setHint("TO");
+        time3from.setHint("From");
+        time3to.setHint("TO");
+        time4from.setHint("From");
+        time4to.setText("TO");
+        vehicleno.setText("");
+        regno.setText("");
+        drivername.setText("");
+        drivercontact.setText("");
+        routeno.setText("");
+        from.setText("");
+        to.setText("");
+    }
 }
 
 
