@@ -9,6 +9,8 @@ public class Bus {
     ArrayList <String> TimeSlots;
    ArrayList <Integer> NoSeats;
 
+   public Bus(){}
+
     public ArrayList<Integer> getNoSeats() {
         return NoSeats;
     }

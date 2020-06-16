@@ -66,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("url",busOwner.getImgurl());
                                 intent.putExtra("fullname",busOwner.getFname());
                                 intent.putExtra("email",busOwner.getEmail());
+                                intent.putExtra("customertype",busOwner.getCustomerType());
                                 startActivity(intent);
                                 Toast.makeText(LoginActivity.this, "Welcome " + busOwner.getFname() + "!!!\n Successfully Logged As a Bus Owner", Toast.LENGTH_SHORT).show();
                             } else
@@ -94,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.putExtra("url",passenger.getImgurl());
                                     intent.putExtra("fullname",passenger.getFname());
                                     intent.putExtra("email",passenger.getEmail());
+                                    intent.putExtra("customertype",passenger.getCustomerType());
                                     startActivity(intent);
                                     Toast.makeText(LoginActivity.this,"Welcome "+passenger.getFname()+"!!!\n Successfully Logged As a Passenger",Toast.LENGTH_SHORT).show();
                                 }

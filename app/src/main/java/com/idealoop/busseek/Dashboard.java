@@ -57,6 +57,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         url = extras.getString("url");
         fullname = extras.getString("fullname");
         email = extras.getString("email");
+        customertype = extras.getString("customertype");
 
         NavigationHeaderSetup();
 
@@ -99,17 +100,17 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             intent.putExtra("url",url);
             intent.putExtra("fullname",fullname);
             intent.putExtra("email",email);
-
+            intent.putExtra("customertype",customertype);
             startActivity(intent);
         }
         else if(id == R.id.viewmybuses){
-            Intent intent = new Intent(Dashboard.this,Dashboard.class);
+            Intent intent = new Intent(Dashboard.this,myBusList.class);
             intent.putExtra("username",username);
             intent.putExtra("id",id);
             intent.putExtra("url",url);
             intent.putExtra("fullname",fullname);
             intent.putExtra("email",email);
-
+            intent.putExtra("customertype",customertype);
             startActivity(intent);
         }
         else if(id == R.id.addnewbus){
@@ -119,7 +120,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             intent.putExtra("url",url);
             intent.putExtra("fullname",fullname);
             intent.putExtra("email",email);
-
+            intent.putExtra("customertype",customertype);
             startActivity(intent);
         }
         else if(id == R.id.signout){
@@ -129,7 +130,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             intent.putExtra("url",url);
             intent.putExtra("fullname",fullname);
             intent.putExtra("email",email);
-
+            intent.putExtra("customertype",customertype);
             startActivity(intent);
         }
 
