@@ -133,6 +133,16 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             intent.putExtra("customertype",customertype);
             startActivity(intent);
         }
+        else if(id == R.id.profile){
+            Intent intent = new Intent(Dashboard.this,MyProfile.class);
+            intent.putExtra("username",username);
+            intent.putExtra("id",id);
+            intent.putExtra("url",url);
+            intent.putExtra("fullname",fullname);
+            intent.putExtra("email",email);
+            intent.putExtra("customertype",customertype);
+            startActivity(intent);
+        }
 
         return true;
     }

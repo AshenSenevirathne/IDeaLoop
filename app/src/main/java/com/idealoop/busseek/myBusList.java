@@ -33,14 +33,14 @@ public class myBusList extends AppCompatActivity {
         //busArrayList = new ArrayList<>();
         list = new ArrayList<Bus>();
 
-   /*     final Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         username = extras.getString("username");
         id = extras.getString("id");
         url = extras.getString("url");
         fullname = extras.getString("fullname");
         email = extras.getString("email");
         customertype = extras.getString("customertype");
-*/
+
       DBRef = FirebaseDatabase.getInstance().getReference().child("BusList");
 
         DBRef.addValueEventListener(new ValueEventListener() {
@@ -48,11 +48,14 @@ public class myBusList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-
                     Bus bus = dataSnapshot1.getValue(Bus.class);
-                    System.out.println(bus.getDrivercontact());
-                    list.add(dataSnapshot1.getValue(Bus.class));
+                    System.out.println("From DB: "+bus.getUsername());
+                    System.out.println("From Intenet: "+username);
+                    if(bus.getUsername().equals(username)) {
 
+                        System.out.println(bus.getDrivercontact());
+                        list.add(dataSnapshot1.getValue(Bus.class));
+                    }
                 }
 
                 recyclerMyBus = findViewById(R.id.recylerMyBus);

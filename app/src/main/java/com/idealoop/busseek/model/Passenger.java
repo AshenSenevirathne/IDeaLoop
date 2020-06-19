@@ -10,7 +10,8 @@ public class Passenger {
     String passengerID;
     String CustomerType;
     String imgurl;
-
+    String email;
+    String Password;
 
     public Passenger(){}
     public String getPassword() {
@@ -21,8 +22,7 @@ public class Passenger {
         Password = password;
     }
 
-    String email;
-    String Password;
+
 
     public Passenger(String imgurl,String fname, String lname, String NIC, String address, String contactno, String email, String mainbusroute, String passengerID, String customerType, String Password) {
         this.fname = fname;
