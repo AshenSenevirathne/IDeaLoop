@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,16 +12,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
+import com.idealoop.busseek.MyProfile.MyProfile;
 import com.idealoop.busseek.model.BusOwner;
 import com.idealoop.busseek.model.Passenger;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -138,7 +135,7 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
             startActivity(intent);
         }
         else if(id == R.id.profile){
-            Intent intent = new Intent(Passenger_Dashboard.this,MyProfile.class);
+            Intent intent = new Intent(Passenger_Dashboard.this, MyProfile.class);
             intent.putExtra("username",username);
             intent.putExtra("id",id);
             intent.putExtra("url",url);

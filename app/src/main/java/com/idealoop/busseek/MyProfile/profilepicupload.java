@@ -1,4 +1,4 @@
-package com.idealoop.busseek;
+package com.idealoop.busseek.MyProfile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.idealoop.busseek.model.BusOwner;
+import com.idealoop.busseek.R;
 
 import java.nio.charset.Charset;
 import java.util.Random;

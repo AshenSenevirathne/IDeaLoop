@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DatabaseReference;
+import com.idealoop.busseek.MyProfile.MyProfile;
 import com.idealoop.busseek.model.BusOwner;
 import com.idealoop.busseek.model.Passenger;
 import com.squareup.picasso.Picasso;
@@ -134,7 +135,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             startActivity(intent);
         }
         else if(id == R.id.profile){
-            Intent intent = new Intent(Dashboard.this,MyProfile.class);
+            Intent intent = new Intent(Dashboard.this, MyProfile.class);
             intent.putExtra("username",username);
             intent.putExtra("id",id);
             intent.putExtra("url",url);
