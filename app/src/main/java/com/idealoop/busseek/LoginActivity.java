@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "No USER in this email", Toast.LENGTH_SHORT).show();
                                 }
                                 else if(password.getText().toString().equals(passenger.getPassword())){
-                                    Intent intent = new Intent(LoginActivity.this,Dashboard.class);
+                                    Intent intent = new Intent(LoginActivity.this,Passenger_Dashboard.class);
                                     intent.putExtra("username",passenger.getLname());
                                     intent.putExtra("id",passenger.getPassengerID());
                                     intent.putExtra("url",passenger.getImgurl());

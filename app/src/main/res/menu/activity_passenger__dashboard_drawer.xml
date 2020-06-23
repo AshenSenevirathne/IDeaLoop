@@ -9,13 +9,13 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
         <item
-            android:id="@+id/addnewbus"
-            android:icon="@drawable/addnbus"
-            android:title="Add Bus" />
+            android:id="@+id/bookabus"
+            android:icon="@drawable/eventseat"
+            android:title="Book a Seat" />
         <item
-            android:id="@+id/viewmybuses"
+            android:id="@+id/viewmybooks"
             android:icon="@drawable/viewbooked"
-            android:title="View My Buses" />
+            android:title="View My Books" />
         <item
             android:id="@+id/profile"
             android:icon="@drawable/myaccount"
