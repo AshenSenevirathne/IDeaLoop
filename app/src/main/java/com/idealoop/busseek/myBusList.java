@@ -43,7 +43,7 @@ public class myBusList extends AppCompatActivity {
 
       DBRef = FirebaseDatabase.getInstance().getReference().child("BusList");
 
-        DBRef.addValueEventListener(new ValueEventListener() {
+      DBRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

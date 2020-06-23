@@ -115,7 +115,7 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
             startActivity(intent);
         }
         else if(id == R.id.bookabus){
-            Intent intent = new Intent(Passenger_Dashboard.this,AddNewBus.class);
+            Intent intent = new Intent(Passenger_Dashboard.this,SeatBook.class);
             intent.putExtra("username",username);
             intent.putExtra("id",id);
             intent.putExtra("url",url);
