@@ -11,13 +11,23 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="78dp"
-        android:text="Bus Seek" />
+        android:text="Bus Seek"
+        android:textSize="32sp"
+        android:padding="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="74dp"
-        android:text="Login Page" />
+        android:text="Login Page"
+        android:textSize="22sp"
+        android:padding="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/username"
