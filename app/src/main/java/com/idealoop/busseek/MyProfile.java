@@ -2,6 +2,8 @@ package com.idealoop.busseek;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,7 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +42,7 @@ public class MyProfile extends AppCompatActivity implements PopupMenu.OnMenuItem
     private DatabaseReference DBRef;
     BusOwner busOwner;
     Passenger passenger;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +62,7 @@ public class MyProfile extends AppCompatActivity implements PopupMenu.OnMenuItem
         select = findViewById(R.id.select);
         pass = findViewById(R.id.pass);
         cpass = findViewById(R.id.cpass);
+
 
         final Bundle extras = getIntent().getExtras();
         iusername = extras.getString("username");
@@ -225,4 +231,5 @@ public class MyProfile extends AppCompatActivity implements PopupMenu.OnMenuItem
         return true;
 
     }
+
 }
