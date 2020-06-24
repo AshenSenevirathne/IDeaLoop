@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,6 +66,23 @@ public class myBusList extends AppCompatActivity {
                 adaptor = new Owner_buslist_adaptor(myBusList.this, list);
                 recyclerMyBus.setAdapter(adaptor);
 
+                recyclerMyBus.addOnItemTouchListener(new RecyclerItemClickListener(myBusList.this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Bus bus = list.get(position);
+                        Intent intent =new Intent(myBusList.this, ViewBus.class);
+                        intent.putExtra("bus",  bus);
+                        intent.putExtra("busID",bus.getBusID());
+                        intent.putExtra("username",username);
+                        intent.putExtra("id",id);
+                        intent.putExtra("url",url);
+                        intent.putExtra("fullname",fullname);
+                        intent.putExtra("email",email);
+                        intent.putExtra("customertype",customertype);
+                        startActivity(intent);
+                    }
+                }));
+
             }
 
             @Override
@@ -70,6 +90,8 @@ public class myBusList extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 }

@@ -69,10 +69,6 @@ public class ChangePassword extends AppCompatActivity {
                                 }
                             });
 
-
-                          /*
-
-                           */
                         }
                         else{
                             DBRef = FirebaseDatabase.getInstance().getReference().child("Passenger").child(iusername).child("password");
@@ -90,9 +86,6 @@ public class ChangePassword extends AppCompatActivity {
                                 }
                             });
 
-                          /*
-
-                           */
                         }
                     }
                     else

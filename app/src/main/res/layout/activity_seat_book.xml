@@ -32,24 +32,28 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="From"
-                android:inputType="textPersonName" />
+                android:hint="Select a Departure"
+                android:completionThreshold="1"
+                android:completionHint="Select a Departure"
+                android:padding="10dp"
+                />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="To"
+                android:hint="Select a Destination"
                 android:text=""
-                android:inputType="textPersonName" />
+                android:completionThreshold="1"
+                android:completionHint="Select a Destination" />
 
         </LinearLayout>
 

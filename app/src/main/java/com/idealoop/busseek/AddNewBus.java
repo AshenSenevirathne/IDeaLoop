@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
@@ -40,8 +42,13 @@ import java.util.Random;
 
 public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+    public static final  String[] DISTRICTS = new String[]{
+            "Mahiyanganaya", "Diyathalawa", "Kandy", "Galigamuwa", "Kataragama", "Ramboada", "Paranthan", "Kottawa", "Kamburupitiya", "Girithale", "Karawanella", "Wellawaya", "Medagama", "Buttala", "Point", "Pedro", "Hakgala", "Kaduruwela", "Urani", "Thirukkovil", "Ginigathhena", "Madampe", "Medawachchiya", "Badulla", "Vavuniya", "Kurunegala", "Valaichchenai", "Thihagoda", "Batticaloa", "Minneriya", "Hunnasgiriya", "Ampara", "Digana", "Katunayake", "Kegalle", "Bandaragama", "Welikanda", "Maharagama", "Alawwa", "Dickwella", "Ranna", "Negombo", "Pulmudai", "Tangalle", "Mahaoya", "Senkalady", "Mannar", "Kaduwela", "Polonnaruwa", "Kelaniya", "Kinniya", "Ambalangoda", "Anuradhapura", "Watawala", "Maradana", "Katunayake", "Airport", "Weligamuwa", "Katugastota", "Udawalawe", "Trincomalee", "Pottuvil", "Kadawatha", "Habarana", "Minuwangoda", "Kankesanthurai", "Monaragala", "Warakapola", "Bandarawela", "Puttalam", "Nittambuwa", "Nuwaraeliya", "Mullaitivu", "Chenkalady", "Weerawila", "Arayampathy", "Middeniya", "Debarawewa", "Gampola", "Bibile", "Galoya", "Avissawella", "Pettah", "Kilinochchi", "Embilipitiya", "Nawalapitiya", "ELLA", "Passara", "Godagama", "Dehiattakandiya", "Jaffna", "Anamaduwa", "Melsiripura", "Gelioya", "Naula", "Panandura", "Ambalantota", "Hatton", "Oddamavadi", "Dambulla", "Lunugala", "Gelanigama", "Kanthalai", "Vandarumulai", "Mihintale", "Kallady", "Kitulgala", "Hambantota", "Chilaw", "Kotahena", "Matale", "Yatiyanthota", "Punanai", "Ambepussa", "Kumbalwela", "Kattankudy", "Kiran", "Polannaruwa", "Beruwala", "Nintavur", "Mawanella", "Thalawakele", "Akurana", "Karainagar", "Ratnapura", "Galle", "Kosgama", "Eheliyagoda", "Kadugannawa", "Dondra", "Makumbara", "Bampalapittya", "Girandurukotte", "Kalmunai", "Haputale", "Wellawatta", "Elpitiya", "Peradeniya", "Walasmulla", "Colombo", "Welimada", "Dayagama", "Pussellawa", "Matara", "Balangoda", "Horana", "Mathugama", "Hungama", "Nonagama", "Bentota", "Thihariya", "Eravur", "Talalla", "Akkaraipattu", "Galewela", "Vakarai", "Padiyathalawa", "Tissamaharama"
+    };
+
     TextView bustype,time1from,time2from,time3from,time4from,time1to,time2to,time3to,time4to; //Time selecting Variables
-    EditText vehicleno,regno,drivername,drivercontact,routeno,from,to;
+    EditText vehicleno,regno,drivername,drivercontact,routeno;
+    AutoCompleteTextView from,to;
     Button btnShow,addbus,clear;
     String url;
     String fullname;
@@ -91,6 +98,9 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
         addbus= findViewById(R.id.addbus);
         clear= findViewById(R.id.clear);
 
+        ArrayAdapter<String> autoadapater = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,DISTRICTS);
+        from.setAdapter(autoadapater);
+        to.setAdapter(autoadapater);
         DBRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -450,7 +460,7 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
             }
         }
         else if(bustype.equals("Normal")){
-            for(int i=0; i<52; i++){
+            for(int i=0; i<51; i++){
                 seats.add(0);
             }
         }

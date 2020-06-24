@@ -46,8 +46,8 @@ public class Owner_buslist_adaptor extends RecyclerView.Adapter<Owner_buslist_ad
 
         int booked = 0;
         ArrayList <String> TimeSlots = bus.getTimeSlots();
-        for(int i = 0; i<bus.getTimeSlots().size(); i++){
-            if(bus.getTimeSlots().get(i).equals(1)){
+        for(int i = 0; i<bus.getNoSeats().size(); i++){
+            if(bus.getNoSeats().get(i).equals(1)){
                 booked++;
             }
         }

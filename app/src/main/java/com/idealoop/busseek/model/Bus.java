@@ -1,8 +1,11 @@
 package com.idealoop.busseek.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Bus {
+public class Bus implements Parcelable {
     String bustype;
     String vehicleno,regno,drivername,drivercontact,routeno,from,to,username,busID;
     String time1from,time2from,time3from,time4from,time1to,time2to,time3to,time4to,downloadImgEx, downloadImgIn;
@@ -10,6 +13,42 @@ public class Bus {
    ArrayList <Integer> NoSeats;
 
    public Bus(){}
+
+    protected Bus(Parcel in) {
+        bustype = in.readString();
+        vehicleno = in.readString();
+        regno = in.readString();
+        drivername = in.readString();
+        drivercontact = in.readString();
+        routeno = in.readString();
+        from = in.readString();
+        to = in.readString();
+        username = in.readString();
+        busID = in.readString();
+        time1from = in.readString();
+        time2from = in.readString();
+        time3from = in.readString();
+        time4from = in.readString();
+        time1to = in.readString();
+        time2to = in.readString();
+        time3to = in.readString();
+        time4to = in.readString();
+        downloadImgEx = in.readString();
+        downloadImgIn = in.readString();
+        TimeSlots = in.createStringArrayList();
+    }
+
+    public static final Creator<Bus> CREATOR = new Creator<Bus>() {
+        @Override
+        public Bus createFromParcel(Parcel in) {
+            return new Bus(in);
+        }
+
+        @Override
+        public Bus[] newArray(int size) {
+            return new Bus[size];
+        }
+    };
 
     public ArrayList<Integer> getNoSeats() {
         return NoSeats;
@@ -237,6 +276,36 @@ public class Bus {
 
     public void setTimeSlots(ArrayList<String> timeSlots) {
         TimeSlots = timeSlots;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(bustype);
+        dest.writeString(vehicleno);
+        dest.writeString(regno);
+        dest.writeString(drivername);
+        dest.writeString(drivercontact);
+        dest.writeString(routeno);
+        dest.writeString(from);
+        dest.writeString(to);
+        dest.writeString(username);
+        dest.writeString(busID);
+        dest.writeString(time1from);
+        dest.writeString(time2from);
+        dest.writeString(time3from);
+        dest.writeString(time4from);
+        dest.writeString(time1to);
+        dest.writeString(time2to);
+        dest.writeString(time3to);
+        dest.writeString(time4to);
+        dest.writeString(downloadImgEx);
+        dest.writeString(downloadImgIn);
+        dest.writeStringList(TimeSlots);
     }
 /*
     public void setTimeSlots(ArrayList<String> timeSlots) {
