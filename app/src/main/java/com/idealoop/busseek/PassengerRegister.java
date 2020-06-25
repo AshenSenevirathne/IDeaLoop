@@ -201,6 +201,8 @@ public class PassengerRegister extends AppCompatActivity {
                         }
                     }
                 });
+                Intent intent = new Intent(PassengerRegister.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         //return downloadimgurl;

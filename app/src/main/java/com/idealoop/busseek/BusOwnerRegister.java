@@ -200,11 +200,12 @@ public class BusOwnerRegister extends AppCompatActivity {
                         }
                     }
                 });
+                Intent intent = new Intent(BusOwnerRegister.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         //return downloadimgurl;
-        Intent intent = new Intent(BusOwnerRegister.this, MainActivity.class);
-        startActivity(intent);
+
     }
 
     public String generateRandomString() {

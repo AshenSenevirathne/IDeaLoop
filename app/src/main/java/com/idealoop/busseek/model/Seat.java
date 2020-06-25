@@ -4,7 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Seat implements Parcelable {
-    
+    public Seat() {
+    }
+
     String SeatId, busID, booked, username, busowner, seatno;
 
     public String getSeatno() {

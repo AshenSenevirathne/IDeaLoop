@@ -431,6 +431,14 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
                         }
                     }
                 });
+                Intent intent = new Intent(AddNewBus.this,Dashboard.class);
+                intent.putExtra("username",username);
+                intent.putExtra("id",id);
+                intent.putExtra("url",url);
+                intent.putExtra("fullname",fullname);
+                intent.putExtra("email",email);
+                intent.putExtra("customertype",customertype);
+                startActivity(intent);
             }
         });
         //return downloadimgurl;

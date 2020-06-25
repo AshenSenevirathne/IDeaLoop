@@ -27,8 +27,9 @@ public class SelectSeat extends AppCompatActivity implements PopupMenu.OnMenuIte
     ArrayList<ImageView> imageViews = new ArrayList<ImageView>();
     String url,fullname,customertype,email,id,username, busID;
     Bus bus;
-    DatabaseReference DBRseat, DBRbus, DBRtime;
-    int count, seatnumber;
+    DatabaseReference DBRseat, DBRbus, DBTime;
+    String seatId;
+    int count = 0, seatnumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -583,32 +584,27 @@ public class SelectSeat extends AppCompatActivity implements PopupMenu.OnMenuIte
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+
         if (item.getTitle().toString().equals("Book Seat")){
 
             //Setting Seat
+
+
+
             DBRseat = FirebaseDatabase.getInstance().getReference().child("Seats").child(username);
-            DBRseat.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    count = (int) dataSnapshot.getChildrenCount();
-                    count++;
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-            String seatId = "S-"+count;
-
+            count++;
+            System.out.println("*******************************************************************************" + count);
+            seatId = "S-"+count;
+            System.out.println("*******************************************************************************" + seatId);
             Seat seat = new Seat(seatId, bus.getBusID(), "1", username, bus.getUsername(), Integer.toString(seatnumber));
-            DBRseat = FirebaseDatabase.getInstance().getReference().child("Seats").child(username).child(seatId);
-            DBRseat.setValue(seat);
-
+            DBRseat.child(seatId).setValue(seat);
+            count++;
             //Setting to BusList
             DBRbus = FirebaseDatabase.getInstance().getReference().child("BusList").child(bus.getBusID()).child("noSeats");
             bus.getNoSeats().set((seatnumber-1),1);
             DBRbus.setValue(bus.getNoSeats());
+
+            AddToTimeSlots(bus);
 
             Intent intent = new Intent(SelectSeat.this, SelectSeat.class);
             intent.putExtra("bus",  bus);
@@ -621,9 +617,119 @@ public class SelectSeat extends AppCompatActivity implements PopupMenu.OnMenuIte
             intent.putExtra("customertype",customertype);
             startActivity(intent);
 
+
+
             //Payment Eka methanata enna one
         }
         return true;
     }
+    public void AddToTimeSlots(Bus bus){
+        //0,2,4,6
 
+        String from1,from2,from3,from4;
+        from1 = bus.getTimeSlots().get(0);
+        from2 = bus.getTimeSlots().get(2);
+        from3 = bus.getTimeSlots().get(4);
+        from4 = bus.getTimeSlots().get(6);
+
+        FindTimeSlots(from1,bus);
+        FindTimeSlots(from2,bus);
+        FindTimeSlots(from3,bus);
+        FindTimeSlots(from4,bus);
+
+
+    }
+    public void FindTimeSlots(String from, Bus bus) {
+        //0,2,4,6
+
+        if (from.substring(0, 2).equals("00")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("00");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("01")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("01");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("02")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("02");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("03")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("03");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("04")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("04");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("05")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("05");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("06")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("06");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("07")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("07");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("08")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("09");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("10")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("10");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("11")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("11");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("12")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("12");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("13")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("13");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("14")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("15");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("16")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("16");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("17")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("17");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("18")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("18");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("19")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("19");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("20")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("20");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("21")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("21");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("22")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("22");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        } else if (from.substring(0, 2).equals("23")) {
+            DBTime = FirebaseDatabase.getInstance().getReference().child("23");
+            DBTime.child(bus.getBusID()).setValue(bus);
+        }
+    }
+
+    public void onStart() {
+        super.onStart();
+        DBRseat = FirebaseDatabase.getInstance().getReference().child("Seats").child(username);
+        DBRseat.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                count = (int) dataSnapshot.getChildrenCount();
+
+                System.out.println("*******************************************************************************" + count);
+                count = count + 1;
+                System.out.println("*******************************************************************************" + count);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
+    }
 }
