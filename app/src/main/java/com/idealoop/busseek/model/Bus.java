@@ -12,7 +12,7 @@ public class Bus implements Parcelable {
     ArrayList <String> TimeSlots;
    ArrayList <Integer> NoSeats;
 
-   public Bus(){}
+    public Bus(){}
 
     protected Bus(Parcel in) {
         bustype = in.readString();

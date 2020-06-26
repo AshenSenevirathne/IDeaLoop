@@ -136,10 +136,10 @@ public class PassengerRegister extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode==GalleryPic && resultCode==RESULT_OK && data!=null );
-        imguri = data.getData();
-        imageView.setImageURI(imguri);
-
+        if (requestCode==GalleryPic && resultCode==RESULT_OK && data!=null ) {
+            imguri = data.getData();
+            imageView.setImageURI(imguri);
+        }
 
     }
 
@@ -162,7 +162,8 @@ public class PassengerRegister extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(PassengerRegister.this, "Image upload successfully....", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PassengerRegister.this, "Please wait a Moment....", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PassengerRegister.this, "Details are Uploading", Toast.LENGTH_SHORT).show();
                 Task<Uri> uriTask= uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
@@ -171,8 +172,7 @@ public class PassengerRegister extends AppCompatActivity {
 
                         }
                         url = filepath.getDownloadUrl().toString();
-                        System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
-                        System.out.println("onSuccesslisner "+url);
+
                         return filepath.getDownloadUrl();
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
@@ -182,11 +182,10 @@ public class PassengerRegister extends AppCompatActivity {
 
                             url = task.getResult().toString();
                             downloadimgurl = task.getResult().toString();
-                            System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
-                            System.out.println("Complete listner "+downloadimgurl);
 
 
-                            Toast.makeText(PassengerRegister.this, " got Product Image URL  Successfully", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(PassengerRegister.this, "Image Successfully Added", Toast.LENGTH_SHORT).show();
 
                             String customertype = "passenger";
                             Passenger passenger = new Passenger(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), mainbus.getText().toString(), busownerID1, customertype, pass.getText().toString());
@@ -196,6 +195,7 @@ public class PassengerRegister extends AppCompatActivity {
                             DBRef.child(passenger.getLname()).setValue(passenger);
                             id++;
 
+                            Toast.makeText(PassengerRegister.this, "Successfully Added", Toast.LENGTH_SHORT).show();
                            // clearAll();
 
                         }

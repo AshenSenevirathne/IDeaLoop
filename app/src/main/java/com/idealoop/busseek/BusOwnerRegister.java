@@ -135,10 +135,14 @@ public class BusOwnerRegister extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode==GalleryPic && resultCode==RESULT_OK && data!=null );
-        imguri = data.getData();
-        imageView.setImageURI(imguri);
-
+        if(data==null ){
+            Intent intent = new Intent(this,BusOwnerRegister.class);
+            startActivity(intent);
+        }
+        if (requestCode==GalleryPic && resultCode==RESULT_OK && data!=null ) {
+            imguri = data.getData();
+            imageView.setImageURI(imguri);
+        }
 
     }
 
