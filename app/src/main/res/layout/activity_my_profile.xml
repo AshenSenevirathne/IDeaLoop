@@ -33,18 +33,24 @@
                 android:layout_height="160dp"
                 app:srcCompat="@drawable/user"
                 tools:srcCompat="@drawable/user" />
-
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Profile Picture" />
-
+                android:text="Change Profile Picture"
+                android:background="@drawable/rounded_button"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/passChange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Password" />
+                android:text="Change Password"
+                android:background="@drawable/rounded_button"/>
 
             <EditText
                 android:id="@+id/fname"
@@ -102,18 +108,24 @@
                 android:ems="10"
                 android:hint="No. of Busses Owned"
                 android:inputType="textPersonName" />
-
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update" />
-
+                android:text="Update"
+                android:background="@drawable/rounded_button"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/goback2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Go Back" />
+                android:text="Go Back"
+                android:background="@drawable/rounded_button"/>
 
             <TextView
                 android:layout_width="match_parent"
