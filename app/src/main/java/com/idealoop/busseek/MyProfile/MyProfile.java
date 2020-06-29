@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -228,4 +229,7 @@ public class MyProfile extends AppCompatActivity implements PopupMenu.OnMenuItem
 
     }
 
+    public void updateDetails(View view) {
+        Toast.makeText(MyProfile.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+    }
 }

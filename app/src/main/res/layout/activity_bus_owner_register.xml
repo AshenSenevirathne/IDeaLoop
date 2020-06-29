@@ -175,7 +175,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register"
-                android:background="@drawable/rounded_button"/>
+                android:background="@drawable/rounded_button"
+                android:onClick="register"
+                 />
             <Space
                 android:layout_width="10dp"
                 android:layout_height="15dp"/>
@@ -184,7 +186,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Clear"
-                android:background="@drawable/rounded_button"/>
+                android:background="@drawable/rounded_button"
+                android:onClick="clear" />
 
         </LinearLayout>
     </ScrollView>

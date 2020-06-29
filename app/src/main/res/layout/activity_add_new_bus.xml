@@ -316,7 +316,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:text="Add Bus to Collection"
-                android:background="@drawable/rounded_button"/>
+                android:background="@drawable/rounded_button"
+                android:onClick="AddBus"/>
+
             <Space
                 android:layout_width="10dp"
                 android:layout_height="15dp"/>

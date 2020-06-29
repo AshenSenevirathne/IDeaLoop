@@ -111,4 +111,8 @@ public class ChangePassword extends AppCompatActivity {
         });
 
     }
+
+    public void changePassword(View view) {
+        Toast.makeText(ChangePassword.this, "Successfully changed", Toast.LENGTH_SHORT).show();
+    }
 }

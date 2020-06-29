@@ -169,7 +169,8 @@ tools:context=".PassengerRegister">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
-            android:background="@drawable/rounded_button"/>
+            android:background="@drawable/rounded_button"
+            android:onClick="registerPassenger"/>
         <Space
             android:layout_width="10dp"
             android:layout_height="15dp"/>

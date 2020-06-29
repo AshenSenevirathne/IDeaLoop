@@ -618,6 +618,10 @@ public class AddNewBus extends AppCompatActivity implements PopupMenu.OnMenuItem
 
 
     }
+
+    public void AddBus(View view) {
+        Toast.makeText(AddNewBus.this,"Successfully added",Toast.LENGTH_LONG).show();
+    }
 }
 
 

@@ -233,4 +233,7 @@ public class PassengerRegister extends AppCompatActivity {
         cpass.setText("");
     }
 
+    public void registerPassenger(View view) {
+        Toast.makeText(PassengerRegister.this, "Successfully registered", Toast.LENGTH_SHORT).show();
+    }
 }

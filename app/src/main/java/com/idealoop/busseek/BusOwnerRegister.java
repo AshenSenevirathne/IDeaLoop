@@ -236,4 +236,11 @@ public class BusOwnerRegister extends AppCompatActivity {
     }
 
 
+    public void register(View view) {
+        Toast.makeText(BusOwnerRegister.this,"Registered as a bus owner",Toast.LENGTH_LONG).show();
+    }
+
+    public void clear(View view) {
+        Toast.makeText(BusOwnerRegister.this,"Clear",Toast.LENGTH_LONG).show();
+    }
 }
