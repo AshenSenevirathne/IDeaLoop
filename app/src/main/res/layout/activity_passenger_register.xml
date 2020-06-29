@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-    android:background="@drawable/passR"
+    android:background="@drawable/passr"
 tools:context=".PassengerRegister">
 
     <RelativeLayout
@@ -55,6 +55,7 @@ tools:context=".PassengerRegister">
             android:layout_marginBottom="-5dp"
             android:gravity="center_horizontal"
             android:paddingTop="10sp"
+            android:text="Passenger Registration"
             android:textAlignment="center"
             android:textColor="@color/common_google_signin_btn_text_light_pressed"
             android:textSize="20sp" />

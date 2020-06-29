@@ -15,6 +15,7 @@ tools:context=".ViewBus">
         android:layout_weight="1"
         android:gravity="center_horizontal"
         android:padding="10dp"
+        android:text="View Bus"
         android:textAlignment="center"
         android:textSize="24sp" />
 
@@ -1232,18 +1233,24 @@ tools:context=".ViewBus">
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <Button
             android:id="@+id/clear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear Booked Seats" />
-
+            android:text="Clear Booked Seats"
+            android:background="@drawable/rounded_button"/>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <Button
             android:id="@+id/remove"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Remove Bus" />
+            android:text="Remove Bus"
+            android:background="@drawable/rounded_button"/>
 
     </LinearLayout>
 

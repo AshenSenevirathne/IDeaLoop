@@ -25,6 +25,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:paddingTop="10dp"
+                android:text="My Profile"
                 android:textAlignment="center"
                 android:textSize="24sp" />
             <ImageView
