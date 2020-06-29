@@ -40,6 +40,10 @@
         <activity android:name=".AddNewBus" />
         <activity android:name=".PassengerRegister" />
         <activity android:name=".BusOwnerRegister" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

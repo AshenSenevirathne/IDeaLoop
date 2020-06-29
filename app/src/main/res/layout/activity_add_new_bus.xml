@@ -308,18 +308,24 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/addbus"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Add Bus to Collection" />
-
+                android:layout_height="45dp"
+                android:text="Add Bus to Collection"
+                android:background="@drawable/rounded_button"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="15dp"/>
             <Button
                 android:id="@+id/clear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Clear All" />
+                android:text="Clear All"
+                android:background="@drawable/rounded_button"/>
 
             <TextView
                 android:id="@+id/textView12"
