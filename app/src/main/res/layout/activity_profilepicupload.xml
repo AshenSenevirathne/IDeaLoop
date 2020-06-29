@@ -14,10 +14,13 @@
         android:layout_height="289dp"
         android:paddingLeft="10px"
         app:srcCompat="@drawable/add" />
-
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="15dp"/>
     <Button
         android:id="@+id/change"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Profile Picture" />
+        android:text="Change Profile Picture"
+        android:background="@drawable/rounded_button"/>
 </LinearLayout>

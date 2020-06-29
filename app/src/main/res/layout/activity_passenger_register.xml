@@ -68,20 +68,27 @@ tools:context=".PassengerRegister">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <ImageView
             android:id="@+id/profilePic"
             android:layout_width="match_parent"
             android:layout_height="141dp"
             app:srcCompat="@drawable/user"
             tools:srcCompat="@drawable/user" />
-
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <Button
             android:id="@+id/select"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:text="Select image" />
-
+            android:text="Select image"
+            android:background="@drawable/rounded_button"/>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <EditText
             android:id="@+id/fname"
             android:layout_width="match_parent"
@@ -153,18 +160,24 @@ tools:context=".PassengerRegister">
             android:ems="10"
             android:hint="Confirm Password"
             android:inputType="textPassword" />
-
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register" />
-
+            android:text="Register"
+            android:background="@drawable/rounded_button"/>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="15dp"/>
         <Button
             android:id="@+id/clear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear" />
+            android:text="Clear"
+            android:background="@drawable/rounded_button"/>
 
     </LinearLayout>
 </ScrollView>
