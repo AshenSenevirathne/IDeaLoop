@@ -185,7 +185,7 @@ public class PassengerRegister extends AppCompatActivity {
 
 
 
-                            Toast.makeText(PassengerRegister.this, "Image Successfully Added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PassengerRegister.this, "Details Are Uploaded", Toast.LENGTH_SHORT).show();
 
                             String customertype = "passenger";
                             Passenger passenger = new Passenger(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), mainbus.getText().toString(), busownerID1, customertype, pass.getText().toString());
@@ -195,12 +195,14 @@ public class PassengerRegister extends AppCompatActivity {
                             DBRef.child(passenger.getLname()).setValue(passenger);
                             id++;
 
-                            Toast.makeText(PassengerRegister.this, "Successfully Added", Toast.LENGTH_SHORT).show();
+
                            // clearAll();
 
                         }
                     }
                 });
+                Toast.makeText(PassengerRegister.this, "Passenger Successfully Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PassengerRegister.this, "Login by using Username and Password", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(PassengerRegister.this, LoginActivity.class);
                 startActivity(intent);
             }

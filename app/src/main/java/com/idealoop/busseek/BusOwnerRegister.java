@@ -165,7 +165,7 @@ public class BusOwnerRegister extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(BusOwnerRegister.this, "Image upload successfully....", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BusOwnerRegister.this, "Please Wait a Moment.... \nTill receive a Successful Message", Toast.LENGTH_SHORT).show();
                 Task<Uri> uriTask= uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
@@ -174,8 +174,8 @@ public class BusOwnerRegister extends AppCompatActivity {
 
                         }
                         url = filepath.getDownloadUrl().toString();
-                        System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
-                        System.out.println("onSuccesslisner "+url);
+                        //System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
+                        //System.out.println("onSuccesslisner "+url);
                         return filepath.getDownloadUrl();
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
@@ -185,11 +185,11 @@ public class BusOwnerRegister extends AppCompatActivity {
 
                             url = task.getResult().toString();
                              downloadimgurl = task.getResult().toString();
-                            System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
-                            System.out.println("Complete listner "+downloadimgurl);
+                           // System.out.println("###################\n##############\n##############\n##############\n##############\n##############\n");
+                           // System.out.println("Complete listner "+downloadimgurl);
 
 
-                            Toast.makeText(BusOwnerRegister.this, " got Product Image URL  Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BusOwnerRegister.this, "Details Uploaded... Please Wait", Toast.LENGTH_SHORT).show();
 
                             String customertype = "busowner";
                             BusOwner busOwner = new BusOwner(downloadimgurl,fname.getText().toString(), lname.getText().toString(),nic.getText().toString(), address.getText().toString(), contactno.getText().toString(), email.getText().toString(), noBus.getText().toString(), busownerID1, customertype,pass.getText().toString());
@@ -204,6 +204,8 @@ public class BusOwnerRegister extends AppCompatActivity {
                         }
                     }
                 });
+                Toast.makeText(BusOwnerRegister.this, "BusOwner Successfully Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BusOwnerRegister.this, "Log by using Username and Password", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(BusOwnerRegister.this, LoginActivity.class);
                 startActivity(intent);
             }
