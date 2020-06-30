@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +36,7 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
     DrawerLayout drawerLayout;
     LinearLayout contentView;
     ImageView drawerMenu;
+    ListView listdash;
 
 
     @Override
@@ -47,6 +49,7 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
 
         drawerLayout = findViewById(R.id.passengerDash);
         navigationView = findViewById(R.id.nav_view_pa);
+       // listdash = findViewById(R.id.listdash);
 
         drawerMenu = findViewById(R.id.menuimg);
         // contentView = findViewById(R.id.contentL);
@@ -60,6 +63,7 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
         email = extras.getString("email");
         customertype = extras.getString("customertype");
 
+
         NavigationHeaderSetup();
 
         //FloatingButton
@@ -72,6 +76,8 @@ public class Passenger_Dashboard extends AppCompatActivity implements Navigation
 
             }
         });
+
+
         navigationDrawer();
 
 
